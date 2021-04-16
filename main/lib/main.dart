@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meetup_example/funcs.dart';
 
 void main() {
-  final List<void Function()> _functions = <void Function()>[
-  ];
+  execExamplesFunctions();
 
-  _functions.forEach(_callFunction);
   runApp(const MyApp());
 }
-
-void _callFunction(void Function() function) => function.call();
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -22,7 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(
+        title: 'Flutter Demo Home Page',
+      ),
     );
   }
 }
