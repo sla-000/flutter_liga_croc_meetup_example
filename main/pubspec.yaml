@@ -1,5 +1,5 @@
-name: example_1
-description: example_1
+name: meetup_example
+description: liga-croc-meetup-example
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,6 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  example_non_ns:
+    path: ../example_non_ns
+  example_with_ns:
+    path: ../example_with_ns
 
 dev_dependencies:
   flutter_test:

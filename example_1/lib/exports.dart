@@ -1,1 +1,0 @@
-export 'package:example_1/src/module.dart';
