@@ -17,6 +17,7 @@ dependencies:
   example_with_ns:
     path: ../example_with_ns
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,21 +1,18 @@
-name: example_with_ns
-description: example_with_ns
+name: packet_a
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  rxdart: ^0.26.0
-
-  packet_a:
-    path: ../packet_a
   packet_b:
     path: ../packet_b
+  packet_c:
+    path: ../packet_c
 
 dev_dependencies:
   flutter_test:

@@ -1,16 +1,16 @@
-name: example_with_ns
-description: example_with_ns
+name: meetup_example_2
+description: liga-croc-meetup-example
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  rxdart: ^0.26.0
+  cupertino_icons: ^1.0.2
 
   packet_a:
     path: ../packet_a

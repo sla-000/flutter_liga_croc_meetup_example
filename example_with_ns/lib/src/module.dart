@@ -27,13 +27,60 @@ class WithNullSafe {
         example.init();
         example.log();
       },
-          () {
+      () {
         final OnceInitExample example = OnceInitExample();
         example.init();
         example.log();
         example.init(); // LateInitializationError:
         // Field 'str' has already been initialized.
         example.log();
+      },
+      () {
+
+        String? str;
+
+        // ... some code, maybe str is inited, maybe not
+
+        if (str != null) {
+          final String localValue = str;
+          print(localValue);
+        }
+
+      },
+      () {
+
+        final ExampleModel exampleModel = ExampleModel();
+
+        if (exampleModel.optionalValue != null) {
+          // final String localValue = exampleModel.optionalValue; // A value of
+          // type 'String?' can't be assigned to a variable of type 'String'.
+          // print(localValue);
+        }
+
+      },
+          () {
+
+        final ExampleModel exampleModel = ExampleModel();
+
+        if (exampleModel.optionalValue != null) {
+
+          final String localValue = exampleModel.optionalValue!;
+
+          print(localValue);
+        }
+
+      },
+          () {
+
+        final ExampleModel exampleModel = ExampleModel();
+
+        final String? optionalValue = exampleModel.optionalValue;
+
+        if (optionalValue != null) {
+          final String localValue = optionalValue;
+          print(localValue);
+        }
+
       },
     ];
   }
@@ -66,7 +113,6 @@ class LateInitExample {
   }
 }
 
-
 class OnceInitExample {
   late final String str;
 
@@ -78,3 +124,7 @@ class OnceInitExample {
     print(str);
   }
 }
+
+  class ExampleModel {
+    String? optionalValue;
+  }
