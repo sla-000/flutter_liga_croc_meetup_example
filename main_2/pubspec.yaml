@@ -12,6 +12,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  rxdart: ^0.25.0
+
   packet_a:
     path: ../packet_a
   packet_b:
@@ -20,6 +22,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  rxdart: ^0.26.0
 
 flutter:
   uses-material-design: true
