@@ -10,12 +10,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  rxdart: ^0.26.0
-
   packet_a:
     path: ../packet_a
   packet_b:
     path: ../packet_b
+
+  provider: ^5.0.0
+
+  rxdart: ^0.26.0
 
 dev_dependencies:
   flutter_test:
