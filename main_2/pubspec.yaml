@@ -7,10 +7,15 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
+
+  example_non_ns:
+    path: ../example_non_ns
+  example_with_ns:
+    path: ../example_with_ns
+
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
 
   rxdart: ^0.25.0
 

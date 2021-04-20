@@ -1,3 +1,4 @@
+import 'package:example_with_ns/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -47,6 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // print('someColor=${SomeColor.of(context)}');
+    // ======== Exception caught by widgets library =======================================================
+    // The following _CastError was thrown building MyHomePage(dirty, state: _MyHomePageState#a9c57):
+    // Null check operator used on a null value
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

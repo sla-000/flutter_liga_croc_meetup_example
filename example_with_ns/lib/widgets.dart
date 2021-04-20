@@ -58,9 +58,8 @@ class LateInit extends StatefulWidget {
 }
 
 class _LateInitState extends State<LateInit> with TickerProviderStateMixin {
-
-  late final AnimationController _animationController;
-  late final Animation<double> _opacityAnimation;
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
   late SomeProvidedStuff _someProvidedStuff;
 
   @override
@@ -99,4 +98,23 @@ class _LateInitState extends State<LateInit> with TickerProviderStateMixin {
       child: const Center(),
     );
   }
+}
+
+class SomeColor extends InheritedWidget {
+  const SomeColor({
+    Key? key,
+    required this.color,
+    required Widget child,
+  }) : super(key: key, child: child);
+
+  final Color color;
+
+  static SomeColor of(BuildContext context) {
+    final SomeColor result =
+        context.dependOnInheritedWidgetOfExactType<SomeColor>()!;
+    return result;
+  }
+
+  @override
+  bool updateShouldNotify(SomeColor old) => color != old.color;
 }

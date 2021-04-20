@@ -58,32 +58,32 @@ class LateInit extends StatefulWidget {
   _LateInitState createState() => _LateInitState();
 }
 
-  class _LateInitState extends State<LateInit> with TickerProviderStateMixin {
-    AnimationController _animationController;
-    Animation<double> _opacityAnimation;
-    SomeProvidedStuff _someProvidedStuff;
+class _LateInitState extends State<LateInit> with TickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation<double> _opacityAnimation;
+  SomeProvidedStuff _someProvidedStuff;
 
-    @override
-    void initState() {
-      super.initState();
+  @override
+  void initState() {
+    super.initState();
 
-      _animationController = AnimationController(
-        vsync: this,
-        duration: const Duration(milliseconds: 500),
-      );
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
 
-      _opacityAnimation = CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeOut,
-      );
-    }
+    _opacityAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut,
+    );
+  }
 
-    @override
-    void didChangeDependencies() {
-      super.didChangeDependencies();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-      _someProvidedStuff = context.read<SomeProvidedStuff>();
-    }
+    _someProvidedStuff = context.read<SomeProvidedStuff>();
+  }
 
   @override
   void dispose() {
@@ -99,4 +99,23 @@ class LateInit extends StatefulWidget {
       child: const Center(),
     );
   }
+}
+
+class SomeColor extends InheritedWidget {
+  const SomeColor({
+    Key key,
+    @required this.color,
+    @required Widget child,
+  }) : super(key: key, child: child);
+
+  final Color color;
+
+  static SomeColor of(BuildContext context) {
+    final SomeColor result =
+        context.dependOnInheritedWidgetOfExactType<SomeColor>();
+    return result;
+  }
+
+  @override
+  bool updateShouldNotify(SomeColor old) => color != old.color;
 }
