@@ -1,4 +1,3 @@
-import 'package:example_with_ns/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {

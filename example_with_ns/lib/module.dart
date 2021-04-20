@@ -1,3 +1,8 @@
+import 'package:example_with_ns/built_value/model.dart';
+import 'package:example_with_ns/built_value/models_example.dart' as built;
+import 'package:example_with_ns/freezed/model.dart';
+import 'package:example_with_ns/freezed/models_example.dart' as freezed;
+
 class WithNullSafe {
   WithNullSafe() {
     examples = <void Function()>[
@@ -36,7 +41,6 @@ class WithNullSafe {
         example.log();
       },
       () {
-
         String? str;
 
         // ... some code, maybe str is inited, maybe not
@@ -45,10 +49,8 @@ class WithNullSafe {
           final String localValue = str;
           print(localValue);
         }
-
       },
       () {
-
         final ExampleModel exampleModel = ExampleModel();
 
         if (exampleModel.optionalValue != null) {
@@ -56,22 +58,17 @@ class WithNullSafe {
           // type 'String?' can't be assigned to a variable of type 'String'.
           // print(localValue);
         }
-
       },
-          () {
-
+      () {
         final ExampleModel exampleModel = ExampleModel();
 
         if (exampleModel.optionalValue != null) {
-
           final String localValue = exampleModel.optionalValue!;
 
           print(localValue);
         }
-
       },
-          () {
-
+      () {
         final ExampleModel exampleModel = ExampleModel();
 
         final String? optionalValue = exampleModel.optionalValue;
@@ -80,8 +77,23 @@ class WithNullSafe {
           final String localValue = optionalValue;
           print(localValue);
         }
-
       },
+      () {
+        final FreezedPerson john = freezed.createDefaultPerson('Johnny');
+        final FreezedPerson olderJohn = freezed.growOld(john);
+        final FreezedPerson tallerJohn = freezed.growUp(olderJohn);
+        print(john);
+        print(olderJohn);
+        print(tallerJohn);
+      },
+      () {
+        final BuiltPerson john = built.createDefaultPerson('Johnny');
+        final BuiltPerson olderJohn = built.growOld(john);
+        final BuiltPerson tallerJohn = built.growUp(olderJohn);
+        print(john);
+        print(olderJohn);
+        print(tallerJohn);
+      }
     ];
   }
 
@@ -125,6 +137,6 @@ class OnceInitExample {
   }
 }
 
-  class ExampleModel {
-    String? optionalValue;
-  }
+class ExampleModel {
+  String? optionalValue;
+}

@@ -1,6 +1,5 @@
-import 'package:example_non_ns/exports.dart';
-import 'package:example_with_ns/exports.dart';
-import 'package:flutter/material.dart';
+import 'package:example_non_ns/module.dart';
+import 'package:example_with_ns/module.dart';
 
 int counter;
 
@@ -23,5 +22,4 @@ void _safeCall(void Function() function) {
   } finally {
     print('end');
   }
-
 }

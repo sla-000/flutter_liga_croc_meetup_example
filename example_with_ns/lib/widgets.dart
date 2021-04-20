@@ -116,5 +116,5 @@ class SomeColor extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(SomeColor old) => color != old.color;
+  bool updateShouldNotify(SomeColor oldWidget) => color != oldWidget.color;
 }
